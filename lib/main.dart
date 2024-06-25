@@ -9,6 +9,11 @@ class FlavorCraft extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp();
+    return MaterialApp(
+      theme: ThemeData(
+        brightness: Brightness.light,
+        fontFamily: 'Poppins',
+      ),
+    );
   }
 }

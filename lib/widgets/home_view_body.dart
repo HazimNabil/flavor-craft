@@ -6,8 +6,12 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const RecipeField(
-      hint: 'Search recipe',
+    return const CustomScrollView(
+      slivers: [
+        RecipeField(
+          hint: 'Search recipe',
+        ),
+      ],
     );
   }
 }

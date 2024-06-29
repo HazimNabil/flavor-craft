@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'category_section.dart';
 import 'recipes_list.dart';
 
-class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {

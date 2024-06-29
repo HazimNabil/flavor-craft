@@ -1,5 +1,6 @@
-import 'package:flavor_craft/views/home_view.dart';
 import 'package:flutter/material.dart';
+
+import 'views/recipes_view.dart';
 
 void main() {
   runApp(const FlavorCraft());
@@ -12,7 +13,7 @@ class FlavorCraft extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const HomeView(),
+      home: const RecipesView(),
       theme: ThemeData(
         brightness: Brightness.light,
         fontFamily: 'Poppins',

@@ -1,5 +1,6 @@
 import 'package:flavor_craft/constans.dart';
 import 'package:flavor_craft/widgets/recipe_card.dart';
+import 'package:flavor_craft/widgets/recipe_title.dart';
 import 'package:flutter/material.dart';
 
 class RandomRecipePage extends StatelessWidget {
@@ -8,10 +9,14 @@ class RandomRecipePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
+          const Align(
+            alignment: Alignment.topLeft,
+            child: RecipeTitle(title: 'Random Recipe'),
+          ),
           const RecipeCard(),
           ElevatedButton.icon(
             style: const ButtonStyle(

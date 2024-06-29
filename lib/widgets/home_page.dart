@@ -1,4 +1,5 @@
 import 'package:flavor_craft/widgets/recipe_field.dart';
+import 'package:flavor_craft/widgets/recipe_title.dart';
 import 'package:flutter/material.dart';
 
 import 'category_section.dart';
@@ -13,6 +14,15 @@ class HomePage extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 16.0),
       child: CustomScrollView(
         slivers: [
+          SliverToBoxAdapter(
+            child: SizedBox(height: 55),
+          ),
+          SliverToBoxAdapter(
+            child: RecipeTitle(title: "Let's Cooking"),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(height: 15),
+          ),
           RecipeField(
             hint: 'Search recipe',
           ),

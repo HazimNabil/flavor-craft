@@ -23,7 +23,6 @@ class _RecipesViewState extends State<RecipesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: createAppBar("Let's Cooking"),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,

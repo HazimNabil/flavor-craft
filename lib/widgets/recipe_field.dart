@@ -17,7 +17,7 @@ class RecipeField extends StatelessWidget {
             Icons.search,
             color: Color(0xFF8B8B8B),
           ),
-          hintText: 'Search recipe',
+          hintText: hint,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(32),
           ),

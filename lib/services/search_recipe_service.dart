@@ -1,0 +1,19 @@
+import 'package:dio/dio.dart';
+import 'package:flavor_craft/models/recipe_model.dart';
+
+class SearchRecipeService {
+  var apiKey = '1e3fa2dd0e654c96a374fe631d0aa652';
+  var baseUrl = 'https://api.spoonacular.com/recipes';
+  Dio dio;
+
+  SearchRecipeService(this.dio);
+
+  Future<List<Recipe>> fetchRecipes([String category = '']) async {
+    String url =
+        '$baseUrl/complexSearch?apiKey=$apiKey&addRecipeInformation=true&fillIngredients=true&type=$category';
+    var response = await Dio().get(url);
+    List<dynamic> jsonData = response.data['results'];
+    var recipes = jsonData.map((recipe) => Recipe.fromJson(recipe)).toList();
+    return recipes;
+  }
+}

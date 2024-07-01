@@ -8,9 +8,12 @@ class SearchRecipeService {
 
   SearchRecipeService(this.dio);
 
-  Future<List<Recipe>> fetchRecipes([String category = '']) async {
+  Future<List<Recipe>> fetchRecipes({
+    String query = '',
+    String category = '',
+  }) async {
     String url =
-        '$baseUrl/complexSearch?apiKey=$apiKey&addRecipeInformation=true&fillIngredients=true&type=$category';
+        '$baseUrl/complexSearch?apiKey=$apiKey&query=$query&addRecipeInformation=true&fillIngredients=true&type=$category';
     var response = await Dio().get(url);
     List<dynamic> jsonData = response.data['results'];
     var recipes = jsonData.map((recipe) => Recipe.fromJson(recipe)).toList();

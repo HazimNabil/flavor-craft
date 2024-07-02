@@ -4,6 +4,7 @@ import 'package:flavor_craft/services/search_recipe_service.dart';
 import 'package:flavor_craft/widgets/recipes_list.dart';
 import 'package:flutter/material.dart';
 
+import 'loading_indicator.dart';
 import 'something_went_wrong.dart';
 
 class RecipesListBuilder extends StatefulWidget {
@@ -31,10 +32,9 @@ class _RecipesListBuilderState extends State<RecipesListBuilder> {
           return RecipesList(recipes: snapshot.data!);
         } else if (snapshot.hasError) {
           return SomethingWentWrong(msg: snapshot.error.toString());
+        } else {
+          return const LoadingIndicator();
         }
-        return const SliverToBoxAdapter(
-          child: Placeholder(),
-        );
       },
     );
   }

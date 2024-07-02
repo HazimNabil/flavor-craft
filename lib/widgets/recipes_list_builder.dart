@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flavor_craft/models/recipe_model.dart';
-import 'package:flavor_craft/services/search_recipe_service.dart';
 import 'package:flavor_craft/widgets/recipes_list.dart';
 import 'package:flutter/material.dart';
 
+import '../services/recipe_service.dart';
 import 'loading_indicator.dart';
 import 'something_went_wrong.dart';
 
@@ -20,7 +20,7 @@ class _RecipesListBuilderState extends State<RecipesListBuilder> {
   @override
   void initState() {
     super.initState();
-    future = SearchRecipeService(Dio()).fetchRecipes();
+    future = RecipeService(Dio()).fetchRecipes();
   }
 
   @override

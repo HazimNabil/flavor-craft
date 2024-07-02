@@ -6,13 +6,9 @@ class SomethingWentWrong extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverFillRemaining(
-      child: Center(
-        child: Text(
-          msg,
-          style: const TextStyle(color: Colors.red, fontSize: 18),
-        ),
-      ),
+    return Text(
+      msg,
+      style: const TextStyle(color: Colors.red, fontSize: 18),
     );
   }
 }

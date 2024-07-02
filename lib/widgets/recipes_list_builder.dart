@@ -31,7 +31,11 @@ class _RecipesListBuilderState extends State<RecipesListBuilder> {
         if (snapshot.hasData) {
           return RecipesList(recipes: snapshot.data!);
         } else if (snapshot.hasError) {
-          return SomethingWentWrong(msg: snapshot.error.toString());
+          return SliverFillRemaining(
+            child: Center(
+              child: SomethingWentWrong(msg: snapshot.error.toString()),
+            ),
+          );
         } else {
           return const LoadingIndicator();
         }

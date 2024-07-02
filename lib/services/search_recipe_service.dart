@@ -22,7 +22,7 @@ class SearchRecipeService {
       var recipes = jsonData.map((recipe) => Recipe.fromJson(recipe)).toList();
       return recipes;
     } on DioException catch (e) {
-      var errorMessage = e.message ?? defaultErrorMessage;
+      var errorMessage = e.response?.data['message'] ?? defaultErrorMessage;
       throw Exception(errorMessage);
     } catch (e) {
       throw Exception(defaultErrorMessage);

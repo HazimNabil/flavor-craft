@@ -37,7 +37,11 @@ class _RecipesListBuilderState extends State<RecipesListBuilder> {
             ),
           );
         } else {
-          return const LoadingIndicator();
+          return const SliverFillRemaining(
+            child: Center(
+              child: LoadingIndicator(),
+            ),
+          );
         }
       },
     );

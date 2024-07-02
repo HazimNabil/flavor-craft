@@ -7,12 +7,8 @@ class LoadingIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SliverFillRemaining(
-      child: Center(
-        child: CircularProgressIndicator(
-          color: kMainColor,
-        ),
-      ),
+    return const CircularProgressIndicator(
+      color: kMainColor,
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flavor_craft/models/recipe_model.dart';
 import 'package:flavor_craft/services/recipe_service.dart';
+import 'package:flavor_craft/widgets/loading_indicator.dart';
 import 'package:flavor_craft/widgets/recipe_card.dart';
 import 'package:flavor_craft/widgets/something_went_wrong.dart';
 import 'package:flutter/material.dart';
@@ -30,8 +31,9 @@ class _RecipeCardBuilderState extends State<RecipeCardBuilder> {
           return RecipeCard(recipe: snapshot.data!);
         } else if (snapshot.hasError) {
           return SomethingWentWrong(msg: snapshot.error.toString());
+        } else {
+          return const LoadingIndicator();
         }
-        return const Placeholder();
       },
     );
   }

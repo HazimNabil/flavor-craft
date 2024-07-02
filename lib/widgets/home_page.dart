@@ -1,9 +1,9 @@
 import 'package:flavor_craft/widgets/recipe_field.dart';
 import 'package:flavor_craft/widgets/recipe_title.dart';
+import 'package:flavor_craft/widgets/recipes_list_builder.dart';
 import 'package:flutter/material.dart';
 
 import 'category_section.dart';
-import 'recipes_list.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
           SliverToBoxAdapter(
             child: SizedBox(height: 15),
           ),
-          RecipesList()
+          RecipesListBuilder()
         ],
       ),
     );

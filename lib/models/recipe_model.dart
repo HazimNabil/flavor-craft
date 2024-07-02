@@ -16,7 +16,7 @@ class Recipe {
   });
 
   factory Recipe.fromJson(jsonData) {
-    var ingredients = (jsonData['extendedIngredients'] as List<Ingredient>);
+    var ingredients = (jsonData['extendedIngredients'] as List);
     toElement(ingredient) => Ingredient.fromJson(ingredient);
     return Recipe(
       id: jsonData['id'],

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'recipe_field.dart';
 import 'recipe_title.dart';
-import 'recipes_list.dart';
+// import 'recipes_list.dart';
 
 class SavedRecipesPage extends StatelessWidget {
   const SavedRecipesPage({super.key});
@@ -31,7 +31,7 @@ class SavedRecipesPage extends StatelessWidget {
           SliverToBoxAdapter(
             child: SizedBox(height: 15),
           ),
-          RecipesList()
+          // RecipesList()
         ],
       ),
     );

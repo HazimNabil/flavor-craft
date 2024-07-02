@@ -1,8 +1,10 @@
 import 'package:flavor_craft/constans.dart';
+import 'package:flavor_craft/models/recipe_model.dart';
 import 'package:flutter/material.dart';
 
 class RecipeCard extends StatelessWidget {
-  const RecipeCard({super.key});
+  final Recipe recipe;
+  const RecipeCard({super.key, required this.recipe});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class RecipeCard extends StatelessWidget {
             topRight: Radius.circular(16),
           ),
           child: Image.network(
-            'https://img.spoonacular.com/recipes/716429-312x231.jpg',
+            recipe.image,
             fit: BoxFit.fill,
             width: double.infinity,
           ),
@@ -30,8 +32,13 @@ class RecipeCard extends StatelessWidget {
           color: Colors.white,
           elevation: 10,
           child: ListTile(
-            title: const Text('Pasta'),
-            subtitle: const Text('Chef'),
+            title: Text(recipe.title),
+            titleTextStyle: const TextStyle(
+              overflow: TextOverflow.ellipsis,
+              color: Colors.black,
+              fontFamily: 'Poppins',
+            ),
+            subtitle: Text(recipe.source),
             trailing: IconButton(
               onPressed: () {},
               icon: const Icon(

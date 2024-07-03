@@ -11,8 +11,8 @@ class RandomRecipeCubit extends Cubit<RandomRecipeState> {
   Future<void> fetchRandomRecipe() async {
     try {
       emit(RandomRecipeLoading());
-      await RecipeService(Dio()).fetchRandomRecipe();
-      emit(RandomRecipeLoaded());
+      var randomRecipe = await RecipeService(Dio()).fetchRandomRecipe();
+      emit(RandomRecipeLoaded(randomRecipe));
     } catch (e) {
       emit(RandomRecipeError(e.toString()));
     }

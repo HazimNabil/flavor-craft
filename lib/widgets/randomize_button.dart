@@ -1,4 +1,6 @@
+import 'package:flavor_craft/cubits/random_recipe_cubit/random_recipe_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../constans.dart';
 
@@ -14,7 +16,10 @@ class RandomizeButton extends StatelessWidget {
         fixedSize: MaterialStatePropertyAll(Size(180, 60)),
         iconSize: MaterialStatePropertyAll(30),
       ),
-      onPressed: () {},
+      onPressed: () {
+        var cubit = BlocProvider.of<RandomRecipeCubit>(context);
+        cubit.fetchRandomRecipe();
+      },
       icon: const Icon(Icons.restart_alt),
       label: const Text(
         'Regenerate',

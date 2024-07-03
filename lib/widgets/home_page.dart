@@ -12,34 +12,35 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => SearchRecipeCubit(),
-      child: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0),
-        child: CustomScrollView(
-          slivers: [
-            SliverToBoxAdapter(
-              child: SizedBox(height: 55),
-            ),
-            SliverToBoxAdapter(
-              child: RecipeTitle(title: "Let's Cooking"),
-            ),
-            SliverToBoxAdapter(
-              child: SizedBox(height: 15),
-            ),
-            RecipeField(
-              hint: 'Search recipe',
-            ),
-            SliverToBoxAdapter(
-              child: SizedBox(height: 15),
-            ),
-            CategorySection(),
-            SliverToBoxAdapter(
-              child: SizedBox(height: 15),
-            ),
-            RecipesListBuilder()
-          ],
-        ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: CustomScrollView(
+        slivers: [
+          const SliverToBoxAdapter(
+            child: SizedBox(height: 55),
+          ),
+          const SliverToBoxAdapter(
+            child: RecipeTitle(title: "Let's Cooking"),
+          ),
+          const SliverToBoxAdapter(
+            child: SizedBox(height: 15),
+          ),
+          RecipeField(
+            hint: 'Search recipe',
+            onSubmitted: (query) {
+              var cubit = BlocProvider.of<SearchRecipeCubit>(context);
+              cubit.searchRecipe(query: query);
+            },
+          ),
+          const SliverToBoxAdapter(
+            child: SizedBox(height: 15),
+          ),
+          const CategorySection(),
+          const SliverToBoxAdapter(
+            child: SizedBox(height: 15),
+          ),
+          const RecipesListBuilder()
+        ],
       ),
     );
   }

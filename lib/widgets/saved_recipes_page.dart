@@ -9,26 +9,27 @@ class SavedRecipesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.0),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: SizedBox(height: 55),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: RecipeTitle(title: 'Saved Recipe'),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: SizedBox(height: 15),
           ),
           RecipeField(
             hint: 'Search saved recipe',
+            onSubmitted: (query) {},
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: SizedBox(height: 15),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: SizedBox(height: 15),
           ),
           // RecipesList()

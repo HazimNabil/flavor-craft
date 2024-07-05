@@ -11,10 +11,10 @@ class RandomizeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
       style: const ButtonStyle(
-        backgroundColor: MaterialStatePropertyAll(kMainColor),
-        iconColor: MaterialStatePropertyAll(Colors.white),
-        fixedSize: MaterialStatePropertyAll(Size(180, 60)),
-        iconSize: MaterialStatePropertyAll(30),
+        backgroundColor: WidgetStatePropertyAll(kMainColor),
+        iconColor: WidgetStatePropertyAll(Colors.white),
+        fixedSize: WidgetStatePropertyAll(Size(180, 60)),
+        iconSize: WidgetStatePropertyAll(30),
       ),
       onPressed: () {
         var cubit = BlocProvider.of<RandomRecipeCubit>(context);

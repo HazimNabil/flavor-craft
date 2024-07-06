@@ -1,8 +1,12 @@
+import 'package:flavor_craft/constans.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 
 import 'views/recipes_view.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox(kRecipesBox);
   runApp(const FlavorCraft());
 }
 

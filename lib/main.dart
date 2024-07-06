@@ -1,12 +1,16 @@
 import 'package:flavor_craft/constans.dart';
+import 'package:flavor_craft/models/ingredient_model.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 
+import 'models/recipe_model.dart';
 import 'views/recipes_view.dart';
 
 void main() async {
   await Hive.initFlutter();
-  await Hive.openBox(kRecipesBox);
+  Hive.registerAdapter(IngredientAdapter());
+  Hive.registerAdapter(RecipeAdapter());
+  await Hive.openBox<Recipe>(kRecipesBox);
   runApp(const FlavorCraft());
 }
 

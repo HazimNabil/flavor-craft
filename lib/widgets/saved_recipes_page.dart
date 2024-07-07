@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'recipe_field.dart';
 import 'recipe_title.dart';
-// import 'recipes_list.dart';
+import 'saved_recipes_list_builder.dart';
 
 class SavedRecipesPage extends StatelessWidget {
   const SavedRecipesPage({super.key});
@@ -36,7 +36,7 @@ class SavedRecipesPage extends StatelessWidget {
             const SliverToBoxAdapter(
               child: SizedBox(height: 15),
             ),
-            // RecipesList()
+            const SavedRecipesListBuilder(),
           ],
         ),
       ),

@@ -1,4 +1,6 @@
+import 'package:flavor_craft/cubits/read_recipes_cubit/read_recipes_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'recipe_field.dart';
 import 'recipe_title.dart';
@@ -24,7 +26,10 @@ class SavedRecipesPage extends StatelessWidget {
           ),
           RecipeField(
             hint: 'Search saved recipe',
-            onSubmitted: (query) {},
+            onSubmitted: (query) {
+              var cubit = BlocProvider.of<ReadRecipesCubit>(context);
+              cubit.readRecipes(query);
+            },
           ),
           const SliverToBoxAdapter(
             child: SizedBox(height: 15),

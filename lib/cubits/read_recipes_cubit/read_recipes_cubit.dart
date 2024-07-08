@@ -7,9 +7,18 @@ import 'package:hive_flutter/adapters.dart';
 class ReadRecipesCubit extends Cubit<ReadRecipeState> {
   ReadRecipesCubit() : super(ReadRecipeInitial());
 
-  void readRecipes() {
+  void readRecipes([String? query]) {
     var recipesBox = Hive.box<Recipe>(kRecipesBox);
-    var recipes = recipesBox.values.toList();
+    var data = recipesBox.values.toList();
+    List<Recipe> recipes = data;
+    if (query != null) {
+      test(Recipe recipe) {
+        var queryLower = query.toLowerCase();
+        return recipe.title.toLowerCase().contains(queryLower);
+      }
+
+      recipes = data.where(test).toList();
+    }
     emit(ReadRecipeSuccess(recipes));
   }
 }

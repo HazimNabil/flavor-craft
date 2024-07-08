@@ -1,6 +1,9 @@
 import 'package:flavor_craft/constans.dart';
+import 'package:flavor_craft/cubits/read_recipes_cubit/read_recipes_cubit.dart';
 import 'package:flavor_craft/models/recipe_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_flutter/adapters.dart';
 
 class RecipeCard extends StatefulWidget {
   final Recipe recipe;
@@ -12,10 +15,23 @@ class RecipeCard extends StatefulWidget {
 }
 
 class _RecipeCardState extends State<RecipeCard> {
-  IconData _icon = Icons.bookmark_border;
+  Box recipesBox = Hive.box<Recipe>(kRecipesBox);
+  late bool isSaved;
+
+  void toggleSaveRecipe() {
+    if (isSaved) {
+      recipesBox.delete(widget.recipe.id);
+    } else {
+      recipesBox.put(widget.recipe.id, widget.recipe);
+    }
+    isSaved = !isSaved;
+    setState(() {});
+    BlocProvider.of<ReadRecipesCubit>(context).readRecipes();
+  }
 
   @override
   Widget build(BuildContext context) {
+    isSaved = recipesBox.containsKey(widget.recipe.id);
     return Column(
       children: [
         ClipRRect(
@@ -48,16 +64,11 @@ class _RecipeCardState extends State<RecipeCard> {
             ),
             subtitle: Text(widget.recipe.source),
             trailing: IconButton(
-              onPressed: () {
-                _icon = _icon == Icons.bookmark
-                    ? Icons.bookmark_border
-                    : Icons.bookmark;
-                setState(() {});
-              },
               icon: Icon(
-                _icon,
+                isSaved ? Icons.bookmark : Icons.bookmark_border,
                 color: kMainColor,
               ),
+              onPressed: toggleSaveRecipe,
             ),
           ),
         ),

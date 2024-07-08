@@ -1,3 +1,4 @@
+import 'package:flavor_craft/cubits/read_recipes_cubit/read_recipes_cubit.dart';
 import 'package:flavor_craft/cubits/search_recipe_cubit/search_recipe_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,8 +24,15 @@ class _RecipesViewState extends State<RecipesView> {
   ];
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => SearchRecipeCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => SearchRecipeCubit(),
+        ),
+        BlocProvider(
+          create: (context) => ReadRecipesCubit(),
+        ),
+      ],
       child: Scaffold(
         body: _pages[_currentIndex],
         bottomNavigationBar: BottomNavigationBar(

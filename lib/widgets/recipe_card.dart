@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 
+import '../views/ingredients_view.dart';
+
 class RecipeCard extends StatefulWidget {
   final Recipe recipe;
 
@@ -32,48 +34,57 @@ class _RecipeCardState extends State<RecipeCard> {
   @override
   Widget build(BuildContext context) {
     isSaved = recipesBox.containsKey(widget.recipe.id);
-    return Column(
-      children: [
-        ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(16),
-            topRight: Radius.circular(16),
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => IngredientsView(recipe: widget.recipe),
           ),
-          child: Image.network(
-            widget.recipe.image,
-            fit: BoxFit.fill,
-            width: double.infinity,
-          ),
-        ),
-        Card(
-          margin: const EdgeInsets.all(0),
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(16),
-              bottomRight: Radius.circular(16),
+        );
+      },
+      child: Column(
+        children: [
+          ClipRRect(
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(16),
+              topRight: Radius.circular(16),
+            ),
+            child: Image.network(
+              widget.recipe.image,
+              fit: BoxFit.fill,
+              width: double.infinity,
             ),
           ),
-          color: Colors.white,
-          elevation: 10,
-          child: ListTile(
-            title: Text(widget.recipe.title),
-            titleTextStyle: const TextStyle(
-              overflow: TextOverflow.ellipsis,
-              color: Colors.black,
-              fontFamily: 'Poppins',
-            ),
-            subtitle: Text(widget.recipe.source),
-            trailing: IconButton(
-              icon: Icon(
-                isSaved ? Icons.bookmark : Icons.bookmark_border,
-                color: kMainColor,
+          Card(
+            margin: const EdgeInsets.all(0),
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(16),
+                bottomRight: Radius.circular(16),
               ),
-              onPressed: toggleSaveRecipe,
+            ),
+            color: Colors.white,
+            elevation: 10,
+            child: ListTile(
+              title: Text(widget.recipe.title),
+              titleTextStyle: const TextStyle(
+                overflow: TextOverflow.ellipsis,
+                color: Colors.black,
+                fontFamily: 'Poppins',
+              ),
+              subtitle: Text(widget.recipe.source),
+              trailing: IconButton(
+                icon: Icon(
+                  isSaved ? Icons.bookmark : Icons.bookmark_border,
+                  color: kMainColor,
+                ),
+                onPressed: toggleSaveRecipe,
+              ),
             ),
           ),
-        ),
-        const SizedBox(height: 20)
-      ],
+          const SizedBox(height: 20)
+        ],
+      ),
     );
   }
 }

@@ -27,6 +27,7 @@ class IngredientsViewBody extends StatelessWidget {
               width: double.infinity,
             ),
           ),
+          const SizedBox(height: 20),
           IngredientsList(ingredients: recipe.ingredients),
         ],
       ),

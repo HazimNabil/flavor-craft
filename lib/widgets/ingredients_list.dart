@@ -1,6 +1,6 @@
+import 'package:flavor_craft/widgets/ingredient_card.dart';
 import 'package:flutter/material.dart';
 
-import '../constans.dart';
 import '../models/ingredient_model.dart';
 
 class IngredientsList extends StatelessWidget {
@@ -12,12 +12,11 @@ class IngredientsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
-        itemCount: 10,
+        padding: EdgeInsets.zero,
+        itemCount: ingredients.length,
         itemBuilder: (context, index) {
-          return Container(
-            height: 60,
-            color: kMainColor,
-            child: const Text('ingredient'),
+          return IngredientCard(
+            ingredient: ingredients[index],
           );
         },
       ),

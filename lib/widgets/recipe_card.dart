@@ -53,6 +53,13 @@ class _RecipeCardState extends State<RecipeCard> {
               widget.recipe.image,
               fit: BoxFit.fill,
               width: double.infinity,
+              errorBuilder: (context, error, stackTrace) {
+                return Image.asset(
+                  'assets/images/pexels-goumbik-616401.jpg',
+                  fit: BoxFit.fill,
+                  width: double.infinity,
+                );
+              },
             ),
           ),
           Card(

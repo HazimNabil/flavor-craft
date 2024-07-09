@@ -4,6 +4,7 @@ import 'category_widget.dart';
 
 class CategoriesListView extends StatelessWidget {
   final categories = const [
+    'general',
     'main course',
     'side dish',
     'dessert',

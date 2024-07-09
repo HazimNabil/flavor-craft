@@ -11,9 +11,10 @@ class SearchRecipeCubit extends Cubit<SearchRecipeState> {
   Future<void> searchRecipe({String query = '', String category = ''}) async {
     emit(SearchRecipeLoading());
     try {
+      if (category == 'any') category = '';
       var recipes = await RecipeService(Dio()).fetchRecipes(
         query: query,
-        category: category, 
+        category: category,
       );
       emit(SearchRecipeLoaded(recipes));
     } catch (e) {

@@ -24,7 +24,10 @@ class CategoryWidget extends StatelessWidget {
         child: Center(
           child: Text(
             category,
-            style: const TextStyle(color: Colors.white),
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+            ),
           ),
         ),
       ),

@@ -1,6 +1,8 @@
 import 'package:flavor_craft/models/recipe_model.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/ingredients_view_body.dart';
+
 class IngredientsView extends StatelessWidget {
   final Recipe recipe;
 
@@ -8,6 +10,8 @@ class IngredientsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      body: IngredientsViewBody(recipe: recipe),
+    );
   }
 }

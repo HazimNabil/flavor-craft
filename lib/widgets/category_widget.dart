@@ -16,7 +16,7 @@ class CategoryWidget extends StatelessWidget {
       },
       child: Container(
         margin: const EdgeInsets.only(right: 12),
-        width: 120,
+        width: 105,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(32),
           color: kMainColor,
@@ -26,7 +26,7 @@ class CategoryWidget extends StatelessWidget {
             category,
             style: const TextStyle(
               color: Colors.white,
-              fontSize: 16,
+              fontSize: 15,
             ),
           ),
         ),

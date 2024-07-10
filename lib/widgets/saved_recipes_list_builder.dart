@@ -16,7 +16,6 @@ class SavedRecipesListBuilder extends StatefulWidget {
 }
 
 class _SavedRecipesListBuilderState extends State<SavedRecipesListBuilder> {
-
   @override
   void initState() {
     super.initState();
@@ -28,19 +27,19 @@ class _SavedRecipesListBuilderState extends State<SavedRecipesListBuilder> {
     return BlocBuilder<ReadRecipesCubit, ReadRecipeState>(
       builder: (context, state) {
         if (state is ReadRecipeSuccess) {
-          return RecipesList(recipes: state.recipes);
-        } else {
-          return const SliverFillRemaining(
-            child: Center(
-              child: Text(
-                'No saved recipes to display',
-                style: TextStyle(
-                  fontSize: 22,
-                  color: kMainColor,
+          if (state.recipes.isEmpty) {
+            return const SliverFillRemaining(
+              child: Center(
+                child: Text(
+                  'No saved recipes to display',
+                  style: TextStyle(fontSize: 24, color: kMainColor),
                 ),
               ),
-            ),
-          );
+            );
+          }
+          return RecipesList(recipes: state.recipes);
+        } else {
+          return const Placeholder();
         }
       },
     );

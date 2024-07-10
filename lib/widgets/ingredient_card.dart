@@ -8,13 +8,15 @@ class IngredientCard extends StatelessWidget {
 
   const IngredientCard({super.key, required this.ingredient});
 
-  num cleanAmount(double amount) {
-    return amount % 1 == 0 ? amount.truncate() : amount;
+  String formatAmount(double amount) {
+    return amount % 1 == 0
+        ? amount.truncate().toString()
+        : amount.toStringAsFixed(2);
   }
 
   @override
   Widget build(BuildContext context) {
-    var amount = cleanAmount(ingredient.amount);
+    var amount = formatAmount(ingredient.amount);
     return Container(
       height: 55,
       margin: const EdgeInsets.only(bottom: 12),

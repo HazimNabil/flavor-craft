@@ -14,7 +14,7 @@ class RecipeField extends StatelessWidget {
         cursorColor: kMainColor,
         onSubmitted: onSubmitted,
         decoration: InputDecoration(
-          contentPadding: const EdgeInsets.symmetric(vertical: 16),
+          contentPadding: const EdgeInsets.symmetric(vertical: 8),
           prefixIcon: const Icon(
             Icons.search,
             color: Color(0xFF8B8B8B),

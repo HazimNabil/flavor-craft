@@ -8,7 +8,7 @@ class SomethingWentWrong extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       msg,
-      style: const TextStyle(color: Colors.red, fontSize: 18),
+      style: const TextStyle(color: Colors.red, fontSize: 20),
     );
   }
 }

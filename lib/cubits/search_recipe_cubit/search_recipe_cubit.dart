@@ -17,8 +17,8 @@ class SearchRecipeCubit extends Cubit<SearchRecipeState> {
         category: category,
       );
       emit(SearchRecipeLoaded(recipes));
-    } catch (e) {
-      emit(SearchRecipeError(e.toString()));
+    } on FormatException catch (e) {
+      emit(SearchRecipeError(e.message));
     }
   }
 }

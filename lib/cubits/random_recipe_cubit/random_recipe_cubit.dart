@@ -13,8 +13,8 @@ class RandomRecipeCubit extends Cubit<RandomRecipeState> {
       emit(RandomRecipeLoading());
       var randomRecipe = await RecipeService(Dio()).fetchRandomRecipe();
       emit(RandomRecipeLoaded(randomRecipe));
-    } catch (e) {
-      emit(RandomRecipeError(e.toString()));
+    } on FormatException catch (e) {
+      emit(RandomRecipeError(e.message));
     }
   }
 }

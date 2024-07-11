@@ -22,9 +22,9 @@ class RecipeService {
       return recipes;
     } on DioException catch (e) {
       var errorMessage = e.response?.data['message'] ?? defaultErrorMessage;
-      throw Exception(errorMessage);
+      throw FormatException(errorMessage);
     } catch (e) {
-      throw Exception(defaultErrorMessage);
+      throw FormatException(defaultErrorMessage);
     }
   }
 
@@ -37,9 +37,9 @@ class RecipeService {
       return recipe;
     } on DioException catch (e) {
       var errorMessage = e.response?.data['message'] ?? defaultErrorMessage;
-      throw Exception(errorMessage);
+      throw FormatException(errorMessage);
     } catch (e) {
-      throw Exception(defaultErrorMessage);
+      throw FormatException(defaultErrorMessage);
     }
   }
 }

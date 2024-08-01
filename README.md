@@ -1,5 +1,3 @@
-Absolutely, here's the updated README file with the attribution for the Food Recipe App UI Kit, formatted exactly as you requested:
-
 ## Flavor Craft - Your Recipe Organizer and Inspiration
 
 Flavor Craft is your one-stop shop for exploring and managing delicious recipes. With Flavor Craft, you can:

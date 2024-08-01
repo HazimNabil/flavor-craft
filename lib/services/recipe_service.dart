@@ -1,8 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flavor_craft/models/recipe_model.dart';
 
+import 'api_config.dart';
+
 class RecipeService {
-  var apiKey = '1e3fa2dd0e654c96a374fe631d0aa652';
   var baseUrl = 'https://api.spoonacular.com/recipes';
   final defaultErrorMessage = 'Oops there was an error, try later.';
   Dio dio;
